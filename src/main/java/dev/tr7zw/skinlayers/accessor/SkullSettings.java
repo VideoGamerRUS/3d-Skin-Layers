@@ -14,9 +14,9 @@ public interface SkullSettings extends SkullData {
 
     public void setInitialized(boolean initialized);
 
-    public void setLastTexture(/*? >= 1.21.11 {*/ Identifier /*?} else {*/ /*ResourceLocation *//*?}*/ texture);
+    public void setLastTexture(/*? >= 1.21.11 {*/ Identifier /*?} else {*/ /*Identifier *//*?}*/ texture);
 
-    public /*? >= 1.21.11 {*/ Identifier /*?} else {*/ /*ResourceLocation *//*?}*/ getLastTexture();
+    public /*? >= 1.21.11 {*/ Identifier /*?} else {*/ /*Identifier *//*?}*/ getLastTexture();
 
     @Override
     default Mesh getMesh() {

@@ -13,10 +13,9 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 
 import dev.tr7zw.skinlayers.accessor.ModelPartInjector;
-import traben.entity_model_features.models.parts.EMFModelPart;
 
 @Pseudo
-@Mixin(EMFModelPart.class)
+@Mixin(targets = "traben.entity_model_features.models.parts.EMFModelPart")
 public abstract class EMFModelPartMixin implements ModelPartInjector {
 
     //? if >= 1.21.0 {

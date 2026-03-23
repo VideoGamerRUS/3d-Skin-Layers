@@ -36,7 +36,7 @@ import net.minecraft.client.player.AbstractClientPlayer;
 import net.minecraft.client.renderer.entity.state.AvatarRenderState;
 //? } else if >= 1.21.2 {
 /*
- import net.minecraft.client.renderer.entity.state.PlayerRenderState;
+ import net.minecraft.client.renderer.entity.state.AvatarRenderState;
 *///? } else {
 /*
  import net.minecraft.client.renderer.RenderType;
@@ -74,7 +74,7 @@ public abstract class PlayerRendererMixin
         extends LivingEntityRenderer<AbstractClientPlayer, AvatarRenderState, PlayerModel> {
     //? } else if >= 1.21.2 {
     /*
-     extends LivingEntityRenderer<AbstractClientPlayer, PlayerRenderState, PlayerModel> {
+     extends LivingEntityRenderer<AbstractClientPlayer, AvatarRenderState, PlayerModel> {
     *///? } else {
     /*
             extends LivingEntityRenderer<AbstractClientPlayer, PlayerModel<AbstractClientPlayer>> {
@@ -185,8 +185,8 @@ public abstract class PlayerRendererMixin
             /*
                      MultiBufferSource multiBufferSource,
                     *///? }
-            int i, /*? >= 1.21.11 {*/ Identifier /*?} else {*/ /*ResourceLocation *//*?}*/ resourceLocation,
-            ModelPart arm, boolean bl, CallbackInfo info) {
+            int i, /*? >= 1.21.11 {*/ Identifier /*?} else {*/ /*Identifier *//*?}*/ resourceLocation, ModelPart arm,
+            boolean bl, CallbackInfo info) {
         // TODO
         AbstractClientPlayer abstractClientPlayer = Minecraft.getInstance().player;// hacky, but 1.21.2 happened
         ModelPart sleeve;
@@ -223,7 +223,7 @@ public abstract class PlayerRendererMixin
 
     //? if >= 1.21.9 {
 
-    @WrapOperation(method = "method_72996", at = @At(value = "NEW", target = /*? >= 1.21.11 {*/ "(Lnet/minecraft/client/model/geom/ModelPart;Z)Lnet/minecraft/client/model/player/PlayerModel;" /*?} else {*/ /*"(Lnet/minecraft/client/model/geom/ModelPart;Z)Lnet/minecraft/client/model/PlayerModel;" *//*?}*/))
+    @WrapOperation(method = /*? >= 26.0 {*/ "lambda$new$0" /*?} else {*/ /*"method_72996" *//*?}*/, at = @At(value = "NEW", target = /*? >= 1.21.11 {*/ "(Lnet/minecraft/client/model/geom/ModelPart;Z)Lnet/minecraft/client/model/player/PlayerModel;" /*?} else {*/ /*"(Lnet/minecraft/client/model/geom/ModelPart;Z)Lnet/minecraft/client/model/PlayerModel;" *//*?}*/))
     private static PlayerModel markArmorModelAsIgnored(ModelPart modelPart, boolean slim,
             Operation<PlayerModel> original) {
         PlayerModel call = original.call(modelPart, slim);

@@ -81,7 +81,7 @@ public class PlayerModelMixin<T extends LivingEntity> extends HumanoidModel impl
         //? } else {
         /*
          public void setupAnim(
-         net.minecraft.client.renderer.entity.state.PlayerRenderState playerRenderState,
+         net.minecraft.client.renderer.entity.state.AvatarRenderState playerRenderState,
          CallbackInfo ci) {
          net.minecraft.client.player.AbstractClientPlayer abstractClientPlayer = null;
          if (playerRenderState instanceof EntityRenderStateExtender extender && extender.getTransitionEntity() instanceof net.minecraft.client.player.AbstractClientPlayer entity) {

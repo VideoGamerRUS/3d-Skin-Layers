@@ -101,7 +101,7 @@ public class SkullBlockEntityRendererMixin {
     @Inject(method = "submit", at = @At("HEAD"))
     private void submit(net.minecraft.client.renderer.blockentity.state.SkullBlockRenderState skullBlockRenderState,
             PoseStack poseStack, net.minecraft.client.renderer.SubmitNodeCollector submitNodeCollector,
-            net.minecraft.client.renderer.state.CameraRenderState cameraRenderState, CallbackInfo ci) {
+            net.minecraft.client.renderer.state.level.CameraRenderState cameraRenderState, CallbackInfo ci) {
         if (renderNext && skullBlockRenderState instanceof ExtensionHolder extensionHolder) {
             lastSkull = extensionHolder.getExtension(LAYER_HOLDER, SkullSettings.class);
         } else {
@@ -155,7 +155,7 @@ public class SkullBlockEntityRendererMixin {
                 //? }
                 if (gameProfile == null)
                     return;
-                ResourceLocation textureLocation = PlayerUtil.getPlayerSkin(gameProfile);
+                Identifier textureLocation = PlayerUtil.getPlayerSkin(gameProfile);
                 if (textureLocation != lastSkull.getLastTexture()) {
                     lastSkull.setInitialized(false);
                 }
