@@ -51,13 +51,13 @@ public class SkullRendererCache {
         }
 
         @Override
-        public void setLastTexture(/*? >= 1.21.11 {*/ Identifier /*?} else {*/ /*Identifier *//*?}*/ texture) {
+        public void setLastTexture(Identifier texture) {
             // TODO Auto-generated method stub
 
         }
 
         @Override
-        public /*? >= 1.21.11 {*/ Identifier /*?} else {*/ /*Identifier *//*?}*/ getLastTexture() {
+        public Identifier getLastTexture() {
             // TODO Auto-generated method stub
             return null;
         }

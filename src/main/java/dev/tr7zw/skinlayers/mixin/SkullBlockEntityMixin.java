@@ -12,7 +12,7 @@ public class SkullBlockEntityMixin implements SkullSettings {
 
     private Mesh hatModel = null;
     private boolean initialized = false;
-    private /*? >= 1.21.11 {*/ Identifier /*?} else {*/ /*Identifier *//*?}*/ lastTexture = null;
+    private Identifier lastTexture = null;
 
     @Override
     public Mesh getHeadLayers() {
@@ -35,12 +35,12 @@ public class SkullBlockEntityMixin implements SkullSettings {
     }
 
     @Override
-    public void setLastTexture(/*? >= 1.21.11 {*/ Identifier /*?} else {*/ /*Identifier *//*?}*/ texture) {
+    public void setLastTexture(Identifier texture) {
         this.lastTexture = texture;
     }
 
     @Override
-    public /*? >= 1.21.11 {*/ Identifier /*?} else {*/ /*Identifier *//*?}*/ getLastTexture() {
+    public Identifier getLastTexture() {
         return lastTexture;
     }
 

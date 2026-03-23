@@ -185,7 +185,7 @@ public abstract class PlayerRendererMixin
             /*
                      MultiBufferSource multiBufferSource,
                     *///? }
-            int i, /*? >= 1.21.11 {*/ Identifier /*?} else {*/ /*Identifier *//*?}*/ resourceLocation, ModelPart arm,
+            int i, Identifier resourceLocation, ModelPart arm,
             boolean bl, CallbackInfo info) {
         // TODO
         AbstractClientPlayer abstractClientPlayer = Minecraft.getInstance().player;// hacky, but 1.21.2 happened
