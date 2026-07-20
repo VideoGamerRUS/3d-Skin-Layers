@@ -6,6 +6,7 @@ import com.google.common.collect.Sets;
 
 import dev.tr7zw.skinlayers.accessor.PlayerSettings;
 import dev.tr7zw.skinlayers.config.ConfigScreenProvider;
+import dev.tr7zw.skinlayers.util.EMFAnimationCompat;
 import dev.tr7zw.skinlayers.versionless.ModBase;
 import dev.tr7zw.transition.loader.ModLoaderUtil;
 import net.minecraft.world.entity.player.Player;
@@ -23,6 +24,12 @@ public abstract class SkinLayersModBase extends ModBase {
         instance = this;
         ModLoaderUtil.disableDisplayTest();
         ModLoaderUtil.registerConfigScreen(ConfigScreenProvider::createConfigScreen);
+    }
+
+    @Override
+    public void onInitialize() {
+        super.onInitialize();
+        EMFAnimationCompat.init();
     }
 
     public void refreshLayers(Player player) {
