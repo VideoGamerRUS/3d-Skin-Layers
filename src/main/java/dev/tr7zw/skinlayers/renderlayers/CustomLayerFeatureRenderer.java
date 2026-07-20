@@ -104,6 +104,9 @@
             Mesh mesh = layer.meshGetter.apply(settings);
             if (mesh != null && abstractClientPlayer.isModelPartShown(layer.modelPart)
                     && layer.vanillaGetter.get().visible && layer.configGetter.apply(abstractClientPlayer)) {
+                if (dev.tr7zw.skinlayers.util.BendyLibCompat.isBent(layer.vanillaGetter.get())) {
+                    continue; // bendy-lib is bending this part, the vanilla 2d layer is the fallback
+                }
                 matrixStack.pushPose();
                 LayerFeatureTransformerAPI.getTransformer().transform(abstractClientPlayer, matrixStack,
                         layer.vanillaGetter.get());

@@ -23,7 +23,8 @@ public abstract class EMFModelPartMixin implements ModelPartInjector {
     @Inject(method = "render(Lcom/mojang/blaze3d/vertex/PoseStack;Lcom/mojang/blaze3d/vertex/VertexConsumer;III)V", at = @At(value = "HEAD"), cancellable = true)
     public void render(PoseStack poseStack, VertexConsumer vertexConsumer, int light, int overlay, int color,
             CallbackInfo ci) {
-        if (isVisible() && getInjectedMesh() != null) {
+        if (isVisible() && getInjectedMesh() != null
+                && !dev.tr7zw.skinlayers.util.BendyLibCompat.isBent((ModelPart) (Object) this)) {
             poseStack.pushPose();
             prepareTranslateAndRotate(poseStack);
             getOffsetProvider().applyOffset(poseStack, getInjectedMesh());

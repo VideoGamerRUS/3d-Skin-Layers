@@ -160,16 +160,23 @@ public abstract class PlayerRendererMixin
                         OffsetProvider.RIGHT_LEG);
             }
         } else {
-            // hiding vanilla layers when needed
+            // hiding vanilla layers when needed. When bendy-lib is bending the
+            // part, the (bent) vanilla 2d layer is used as the fallback instead
             playerModel.hat.visible = playerModel.hat.visible && !SkinLayersModBase.config.enableHat;
-             playerModel.jacket.visible = playerModel.jacket.visible && !SkinLayersModBase.config.enableJacket;
+             playerModel.jacket.visible = playerModel.jacket.visible && !(SkinLayersModBase.config.enableJacket
+                     && !dev.tr7zw.skinlayers.util.BendyLibCompat.isBent(playerModel.body));
              playerModel.leftSleeve.visible = playerModel.leftSleeve.visible
-                     && !SkinLayersModBase.config.enableLeftSleeve;
+                     && !(SkinLayersModBase.config.enableLeftSleeve
+                             && !dev.tr7zw.skinlayers.util.BendyLibCompat.isBent(playerModel.leftArm));
              playerModel.rightSleeve.visible = playerModel.rightSleeve.visible
-                     && !SkinLayersModBase.config.enableRightSleeve;
-             playerModel.leftPants.visible = playerModel.leftPants.visible && !SkinLayersModBase.config.enableLeftPants;
+                     && !(SkinLayersModBase.config.enableRightSleeve
+                             && !dev.tr7zw.skinlayers.util.BendyLibCompat.isBent(playerModel.rightArm));
+             playerModel.leftPants.visible = playerModel.leftPants.visible
+                     && !(SkinLayersModBase.config.enableLeftPants
+                             && !dev.tr7zw.skinlayers.util.BendyLibCompat.isBent(playerModel.leftLeg));
              playerModel.rightPants.visible = playerModel.rightPants.visible
-                     && !SkinLayersModBase.config.enableRightPants;
+                     && !(SkinLayersModBase.config.enableRightPants
+                             && !dev.tr7zw.skinlayers.util.BendyLibCompat.isBent(playerModel.rightLeg));
          }
       }
     *///? }

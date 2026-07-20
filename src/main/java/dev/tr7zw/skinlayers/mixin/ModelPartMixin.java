@@ -14,6 +14,7 @@ import com.mojang.blaze3d.vertex.VertexConsumer;
 import dev.tr7zw.skinlayers.accessor.ModelPartInjector;
 import dev.tr7zw.skinlayers.api.Mesh;
 import dev.tr7zw.skinlayers.api.OffsetProvider;
+import dev.tr7zw.skinlayers.util.BendyLibCompat;
 import lombok.Getter;
 import net.minecraft.client.model.geom.ModelPart;
 
@@ -39,7 +40,7 @@ public class ModelPartMixin implements ModelPartInjector {
     @Inject(method = "Lnet/minecraft/client/model/geom/ModelPart;render(Lcom/mojang/blaze3d/vertex/PoseStack;Lcom/mojang/blaze3d/vertex/VertexConsumer;III)V", at = @At(value = "HEAD"), cancellable = true)
     public void render(PoseStack poseStack, VertexConsumer vertexConsumer, int light, int overlay, int color,
             CallbackInfo ci) {
-        if (visible && injectedMesh != null) {
+        if (visible && injectedMesh != null && !BendyLibCompat.isBent((ModelPart) (Object) this)) {
             poseStack.pushPose();
             translateAndRotate(poseStack);
             offsetProvider.applyOffset(poseStack, injectedMesh);
