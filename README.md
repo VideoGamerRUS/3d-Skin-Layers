@@ -1,3 +1,21 @@
+Исправлена совместимость между Emotecraft EMF/ETF и 3D Skinlayer
+Работает по принципу:
+EMF v.3.2.4
+ETF v.7.1
+Emotecraft v.2.4.12
+
+Создано и протестировано ИСКЛЮЧИТЕЛЬНО в этом сэтапе на версию 1.21.1 NeoForge!!!!
+
+
+
+
+
+
+
+
+
+
+
 ![alt text](https://tr7zw.github.io/uikit/banner/header_3d_skinlayers.png)
 
 <p align="center" style="text-align: center;">
