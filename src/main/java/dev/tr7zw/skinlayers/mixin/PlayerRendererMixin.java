@@ -106,6 +106,10 @@ public abstract class PlayerRendererMixin
         @Inject(method = "setModelProperties", at = @At("RETURN"))
         public void setModelProperties(AbstractClientPlayer abstractClientPlayer, CallbackInfo info) {
            PlayerModel playerModel = this.getModel();
+           // EMF and co. swap in fresh cuboids without playerAnimator's bend
+           // mutators - re-register them before the vanilla setupAnim runs,
+           // otherwise bendy-lib NPEs mid-render on the first bending emote
+           dev.tr7zw.skinlayers.util.BendyLibCompat.ensurePlayerBendMutators(playerModel);
            if (!loaded) {
                this.addLayer(new dev.tr7zw.skinlayers.renderlayers.CustomLayerFeatureRenderer(this));
     
